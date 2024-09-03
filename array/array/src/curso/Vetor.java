@@ -1,5 +1,7 @@
 package curso;
 
+import java.util.Arrays;
+
 public class Vetor {
 	
 	//attributes
@@ -12,8 +14,19 @@ public class Vetor {
 		this.size = 0;
 	}
 	
-	//add element
-	public void add(String elements) throws Exception {
+	//add element using type a boolean type method
+	public boolean addBoolean(String elements) {
+		if(this.size < this.elements.length) {
+			this.elements[this.size] = elements;
+			this.size++;
+			return true;
+		}
+		return false;
+	}
+	
+	
+	 /* 	//add element using exceptions
+	public void add(String elements) throws Exception  {
 		if(this.size < this.elements.length) {
 			this.elements[this.size] = elements;
 			this.size++;
@@ -23,7 +36,9 @@ public class Vetor {
 		}
 
 	}
-	
+	 *
+	 * 
+	 * */
 	
 	//old method add
 	/*
@@ -37,7 +52,29 @@ public class Vetor {
 		}
 	} 
     */
+	public int size() {
+		return this.size;
+	}
 	
 	
+	@Override
+	public String toString() {
+		
+		StringBuilder s = new StringBuilder();
+		s.append("[");
+		
+		for(int i = 0; i < this.size-1; i++) {
+			s.append(this.elements[i]);
+			s.append(", ");
+		}
+		
+		if(this.size>0) {
+			s.append(this.elements[this.size-1]);
+		}
+		
+		s.append("]");
+		
+		return s.toString();
+	}
 
 }
