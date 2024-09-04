@@ -57,6 +57,15 @@ public class Vetor {
 	}
 	
 	
+	public String search(int position) {
+		if(!(position >= 0 && position < size)) {
+			throw new IllegalArgumentException("Invalid position");
+		}
+		return this.elements[position];
+	}
+	
+	
+	
 	@Override
 	public String toString() {
 		

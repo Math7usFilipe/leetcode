@@ -32,6 +32,8 @@ public class Program {
 		System.out.println(vetor2.size());
 		
 		System.out.println(vetor2);
+		
+		System.out.println(vetor2.search(1));
 	}
 
 }
