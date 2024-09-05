@@ -1,39 +1,30 @@
 package curso.teste;
 
-import java.util.Arrays;
-
 import curso.Vetor;
 
 public class Program {
 
 	public static void main(String[] args) throws Exception {
 		
-		Vetor vetor = new Vetor(2);
-		Vetor vetor2 = new Vetor(10);
+		Vetor vetor = new Vetor(10);
 		
-		//add with exceptions
-		/*
-		try {
-			vetor.add("Element 1");
-			vetor.add("Element 2");
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-		}
+		vetor.addBoolean("B");
+		vetor.addBoolean("C");
+		vetor.addBoolean("E");
+		vetor.addBoolean("F");
+		vetor.addBoolean("G");
 		
 		System.out.println(vetor);
-		*/
 		
-		//add using boolean
-		vetor2.addBoolean("Element 1");
-		vetor2.addBoolean("Element 2");
-		vetor2.addBoolean("Element 3");
-		//returns array size
-		System.out.println(vetor2.size());
+		vetor.add(0, "A");
 		
-		System.out.println(vetor2);
+		System.out.println(vetor);
 		
-		System.out.println(vetor2.search(1));
+		vetor.add(3, "D");
+		
+		System.out.println(vetor);
 	}
 
 }
+
+

@@ -24,6 +24,20 @@ public class Vetor {
 		return false;
 	}
 	
+	public boolean add(int position, String elements) {
+		
+		if(!(position >= 0 && position < size)) {
+			throw new IllegalArgumentException("Invalid position");
+		}
+		//move all elements
+		for(int i = this.size - 1; i >= position; i--) {
+			this.elements[i + 1] = this.elements[i];
+		}
+		this.elements[position] = elements;
+		this.size++;
+		
+		return false;
+	}
 	
 	 /* 	//add element using exceptions
 	public void add(String elements) throws Exception  {
@@ -64,7 +78,14 @@ public class Vetor {
 		return this.elements[position];
 	}
 	
-	
+	public int search(String elements) {
+		for(int i = 0; i < this.size; i++) {
+			if(this.elements[i].equals(elements)) {
+				return i;
+			}
+		}
+		return - 1;
+	}
 	
 	@Override
 	public String toString() {
