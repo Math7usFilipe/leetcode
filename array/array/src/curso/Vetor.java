@@ -14,8 +14,20 @@ public class Vetor {
 		this.size = 0;
 	}
 	
+	//method that increases vector capacity
+	private void increasesCapacity() {
+		if(this.size == this.elements.length) {
+			String[] newElements = new String[this.elements.length * 2];
+			for(int i =0; i < elements.length; i++) {
+				newElements[i] = this.elements[i];
+			}
+			this.elements = newElements;
+		}
+	} 
+	
 	//add element using type a boolean type method
 	public boolean addBoolean(String elements) {
+		this.increasesCapacity();
 		if(this.size < this.elements.length) {
 			this.elements[this.size] = elements;
 			this.size++;
@@ -29,6 +41,8 @@ public class Vetor {
 		if(!(position >= 0 && position < size)) {
 			throw new IllegalArgumentException("Invalid position");
 		}
+		
+		this.increasesCapacity();
 		//move all elements
 		for(int i = this.size - 1; i >= position; i--) {
 			this.elements[i + 1] = this.elements[i];
@@ -39,33 +53,7 @@ public class Vetor {
 		return false;
 	}
 	
-	 /* 	//add element using exceptions
-	public void add(String elements) throws Exception  {
-		if(this.size < this.elements.length) {
-			this.elements[this.size] = elements;
-			this.size++;
-		}
-		else {
-			throw new Exception("The array is full, there is no more space for new elements");
-		}
-
-	}
-	 *
-	 * 
-	 * */
 	
-	//old method add
-	/*
-	 * 
-		public void adds(String elements) {
-		for(int i=0; i <this.elements.length; i++) {
-			if(this.elements[i] == null) {
-				this.elements[i] = elements;
-				break;
-			}
-		}
-	} 
-    */
 	public int size() {
 		return this.size;
 	}
@@ -86,6 +74,17 @@ public class Vetor {
 		}
 		return - 1;
 	}
+	//remove elements
+	public void remove(int position) {
+		if(!(position >= 0 && position < size)) {
+			throw new IllegalArgumentException("Invalid position");
+		}
+		for(int i = position; i < this.size - 1; i++ ) {
+			this.elements[i] = this.elements[i + 1];
+		}
+		this.size--;
+	}
+	
 	
 	@Override
 	public String toString() {
