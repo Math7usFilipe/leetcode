@@ -1,5 +1,7 @@
 package curso;
 
+import java.util.Objects;
+
 public class Contact {
 	private String name;
 	private String phone;
@@ -35,6 +37,24 @@ public class Contact {
 	public String toString() {
 		return "Contact [name=" + name + ", phone=" + phone + ", email=" + email + "]";
 	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(email, name, phone);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Contact other = (Contact) obj;
+		return Objects.equals(email, other.email) && Objects.equals(name, other.name)
+				&& Objects.equals(phone, other.phone);
+	}
+	
+	
 	
 	
 }
